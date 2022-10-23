@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include <test.h>
+#include "NetworkManager.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-    test();
+    Network::NetworkManager nwm;
+//    nwm.createRequest();
+
     return app.exec();
 }

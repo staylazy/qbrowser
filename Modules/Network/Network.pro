@@ -3,4 +3,7 @@ TARGET = Network
 TEMPLATE = lib
 
 HEADERS += \
-    test.h
+    NetworkManager.h
+
+SOURCES += \
+    NetworkManager.cpp

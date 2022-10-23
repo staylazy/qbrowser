@@ -24,3 +24,11 @@ else:unix: LIBS += -L$$OUT_PWD/../../Modules/Network/ -lNetwork
 
 INCLUDEPATH += $$PWD/../../Modules/Network
 DEPENDPATH += $$PWD/../../Modules/Network
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Engine/release/ -lEngine
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Engine/debug/ -lEngine
+else:unix: LIBS += -L$$OUT_PWD/../../Modules/Engine/ -lEngine
+
+INCLUDEPATH += $$PWD/../../Modules/Engine
+DEPENDPATH += $$PWD/../../Modules/Engine
