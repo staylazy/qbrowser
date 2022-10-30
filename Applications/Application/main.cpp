@@ -1,13 +1,15 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
-#include "NetworkManager.h"
+#include <RootApplication.h>
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    RootApplication* nwm = new RootApplication();
+    engine.rootContext()->setContextProperty("rootApp", nwm);
     const QUrl url(u"qrc:/main.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -16,8 +18,6 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-    Network::NetworkManager nwm;
-//    nwm.createRequest();
 
     return app.exec();
 }

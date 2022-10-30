@@ -16,6 +16,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 SOURCES += \
+    RootApplication.cpp \
     main.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Network/release/ -lNetwork
@@ -25,10 +26,19 @@ else:unix: LIBS += -L$$OUT_PWD/../../Modules/Network/ -lNetwork
 INCLUDEPATH += $$PWD/../../Modules/Network
 DEPENDPATH += $$PWD/../../Modules/Network
 
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Engine/Parsing/release/ -lParsing
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Engine/Parsing/debug/ -lParsing
+else:unix: LIBS += -L$$OUT_PWD/../../Modules/Engine/Parsing/ -lParsing
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Engine/release/ -lEngine
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Engine/debug/ -lEngine
-else:unix: LIBS += -L$$OUT_PWD/../../Modules/Engine/ -lEngine
+INCLUDEPATH += $$PWD/../../Modules/Engine/Parsing
+DEPENDPATH += $$PWD/../../Modules/Engine/Parsing
 
-INCLUDEPATH += $$PWD/../../Modules/Engine
-DEPENDPATH += $$PWD/../../Modules/Engine
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Frontend/release/ -lFrontend
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../Frontend/debug/ -lFrontend
+else:unix: LIBS += -L$$OUT_PWD/../../Frontend/ -lFrontend
+
+INCLUDEPATH += $$PWD/../../Frontend
+DEPENDPATH += $$PWD/../../Frontend
+
+HEADERS += \
+    RootApplication.h

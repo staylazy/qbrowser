@@ -12,11 +12,14 @@ class NetworkManager : public QObject
 
 public:
     NetworkManager(QObject* parent = nullptr);
-////    void createRequest();
+    void createRequest(const QString& url) const;
 
-////private:
-////    QNetworkAccessManager* m_manager;
+signals:
+    void finish(QString ans);
 
-////    void unpackReply(QNetworkReply* reply);
+private:
+    QNetworkAccessManager* m_manager;
+
+    void unpackReply(QNetworkReply* reply);
 };
 }

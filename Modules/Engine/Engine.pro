@@ -1,5 +1,7 @@
 TARGET = Engine
 
-TEMPLATE = lib
+TEMPLATE = subdirs
 
-HEADERS +=
+SUBDIRS += \
+    Parsing
+

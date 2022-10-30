@@ -1,6 +1,8 @@
 TEMPLATE = subdirs
 
+CONFIG += ordered
+
 SUBDIRS = \
-    Applications \
-    Frontend \
     Modules \
+    Frontend \
+    Applications \
