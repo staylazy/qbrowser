@@ -3,7 +3,7 @@ import QtQuick.Controls 2.5
 
 import "qrc:/Controls" as CustomControls
 
-import frontend 1.0
+import com.qbrowser.frontend 1.0
 
 ApplicationWindow {
     width: 640

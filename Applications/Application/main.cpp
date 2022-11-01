@@ -3,12 +3,15 @@
 #include <RootApplication.h>
 #include <QQmlContext>
 
+#include "FrontendQmlPlugin.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     Q_INIT_RESOURCE(frontend);
+
+    Frontend::FrontendQmlPlugin::registerQmlTypes();
 
     QQmlApplicationEngine engine;
     RootApplication* nwm = new RootApplication();

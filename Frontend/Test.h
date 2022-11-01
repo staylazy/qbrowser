@@ -3,12 +3,12 @@
 #include "qqmlregistration.h"
 #include <QObject>
 
-class Test : public QObject
+class Q_DECL_EXPORT Test : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(int name1 READ name1 WRITE setName1 NOTIFY name1Changed)
-    QML_ELEMENT
+
 public:
     Test(QObject* parent = 0);
     int name() const;
