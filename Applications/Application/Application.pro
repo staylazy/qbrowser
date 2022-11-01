@@ -19,6 +19,9 @@ SOURCES += \
     RootApplication.cpp \
     main.cpp
 
+HEADERS += \
+    RootApplication.h
+
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Network/release/ -lNetwork
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../Modules/Network/debug/ -lNetwork
 else:unix: LIBS += -L$$OUT_PWD/../../Modules/Network/ -lNetwork
@@ -39,6 +42,3 @@ else:unix: LIBS += -L$$OUT_PWD/../../Frontend/ -lFrontend
 
 INCLUDEPATH += $$PWD/../../Frontend
 DEPENDPATH += $$PWD/../../Frontend
-
-HEADERS += \
-    RootApplication.h

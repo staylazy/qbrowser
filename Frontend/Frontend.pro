@@ -1,22 +1,16 @@
 TARGET  = Frontend
 TEMPLATE = lib
-#CONFIG += qt plugin qmltypes
+CONFIG += qt plugin qmltypes
 QT += qml quick
 
-#QML_IMPORT_NAME = Frontend
-#QML_IMPORT_VERSION = 1
-
-#DESTDIR = $$QML_IMPORT_NAME
+QML_IMPORT_NAME = frontend
+QML_IMPORT_VERSION = 1
 
 RESOURCES += \
     frontend.qrc
 
-#SOURCES += \
-#    test.cpp
+SOURCES += \
+    Test.cpp
 
-#HEADERS += \
-#    test.h
-
-#DISTFILES += \
-
-DISTFILES +=
+HEADERS += \
+    Test.h

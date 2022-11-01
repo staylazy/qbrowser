@@ -5,12 +5,13 @@ import QtQuick.Layouts 1.5
 //import ColorsQB 1.0
 
 RowLayout {
+
     property QtObject rootAp
 
     spacing: 10
+
     RoundTool {
         text: "<"
-
     }
 
     RoundTool {
@@ -22,12 +23,12 @@ RowLayout {
 
     Rectangle {
         color: "transparent"
-        border.color: "gray"
+        border.color: "black"
         radius: 5
 
         TextInput {
             id: urlText
-            color: "white"
+            color: "black"
             anchors.left: parent.left
             anchors.topMargin: 5
             anchors.leftMargin: 15
