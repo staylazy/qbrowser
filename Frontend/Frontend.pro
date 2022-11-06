@@ -13,8 +13,10 @@ RESOURCES += \
 
 SOURCES += \
     FrontendQmlPlugin.cpp \
-    Test.cpp
+    Test.cpp \
+    TextNode.cpp
 
 HEADERS += \
     FrontendQmlPlugin.h \
-    Test.h
+    Test.h \
+    TextNode.h

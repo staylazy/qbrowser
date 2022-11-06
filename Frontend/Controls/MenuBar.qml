@@ -28,6 +28,7 @@ RowLayout {
 
         TextInput {
             id: urlText
+            text: "http://example.org"
             color: "black"
             anchors.left: parent.left
             anchors.topMargin: 5
