@@ -1,26 +1,30 @@
 #pragma once
 
-#include "qqmlregistration.h"
 #include <QObject>
+#include <QQuickPaintedItem>
 
-class Q_DECL_EXPORT Test : public QObject
+#include "TextNode.h"
+
+namespace Frontend {
+
+class Q_DECL_EXPORT Test : public QQuickPaintedItem
 {
     Q_OBJECT
-    Q_PROPERTY(int name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(int name1 READ name1 WRITE setName1 NOTIFY name1Changed)
+    Q_PROPERTY(QString renderingText READ renderingText WRITE setRenderingText NOTIFY renderingTextChanged)
 
 public:
-    Test(QObject* parent = 0);
-    int name() const;
-    void setName(int newName);
-    int name1() const;
-    void setName1(int newName1);
+    Test(QQuickItem* parent = 0);
+    void paint(QPainter *painter) override;
+
+    const QString &renderingText() const;
+    void setRenderingText(const QString &newRenderingText);
 
 signals:
-    void nameChanged();
-    void name1Changed();
+    void renderingTextChanged();
 
 private:
-    int m_name;
-    int m_name1;
+    TextNode* _text;
+    QString m_renderingText;
 };
+
+}

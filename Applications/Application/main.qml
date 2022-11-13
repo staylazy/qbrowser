@@ -13,11 +13,8 @@ ApplicationWindow {
 
     Test {
         id: re
-        name: 1
-    }
-
-    Component.onCompleted: {
-        console.log(re.name1)
+        anchors.fill: parent
+        renderingText: rootApp.name
     }
 
     CustomControls.MenuBar {
@@ -29,12 +26,17 @@ ApplicationWindow {
         anchors.margins: 10
     }
 
-    Label {
-        text: rootApp.name
-        wrapMode: Text.WordWrap
-        anchors.top: men.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-    }
+
+//    TextNode {
+//        anchors.fill: parent
+//    }
+
+//    Label {
+//        text: rootApp.name
+//        wrapMode: Text.WordWrap
+//        anchors.top: men.bottom
+//        anchors.left: parent.left
+//        anchors.right: parent.right
+//        anchors.bottom: parent.bottom
+//    }
 }

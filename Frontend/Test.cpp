@@ -1,32 +1,38 @@
 #include "Test.h"
 
-Test::Test(QObject *parent) : QObject(parent)
-{
+#include <QQuickWindow>
 
+namespace Frontend {
+
+
+Test::Test(QQuickItem *parent) :
+    QQuickPaintedItem(parent),
+    _text(new TextNode(this))
+{
+    qDebug() << "test";
 }
 
-int Test::name() const
+void Test::paint(QPainter *painter)
 {
-    return m_name;
+    _text->setText(m_renderingText);
+    // size of rect for mouse events
+    _text->setWidth(width());
+    _text->setHeight(height());
+    _text->paint(painter);
 }
 
-void Test::setName(int newName)
+const QString &Test::renderingText() const
 {
-    if (m_name == newName)
+    return m_renderingText;
+}
+
+void Test::setRenderingText(const QString &newRenderingText)
+{
+    if (m_renderingText == newRenderingText)
         return;
-    m_name = newName;
-    emit nameChanged();
+    m_renderingText = newRenderingText;
+    update();
+    emit renderingTextChanged();
 }
 
-int Test::name1() const
-{
-    return m_name + 1;
-}
-
-void Test::setName1(int newName1)
-{
-    if (m_name1 == newName1)
-        return;
-    m_name1 = newName1;
-    emit name1Changed();
 }
